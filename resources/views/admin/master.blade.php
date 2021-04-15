@@ -73,7 +73,7 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Indigenous People Regional Inter-Agency Committee  -</strong>
-    Western Visayas • 2017
+    Western Visayas • 2018
     <div class="float-right d-none d-sm-inline-block">
       <b>Powered by</b> <a href="https://adminlte.io">AdminLTE</a>
     </div>
