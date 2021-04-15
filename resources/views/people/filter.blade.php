@@ -25,28 +25,45 @@
                         <label for="region" class="form-label">Region</label>               
                         <select class="form-control form-control-sm select2" id="region" name="region" style="width: 100%;">
                         <option selected disabled>SELECT REGION</option>
-                                    @if( Auth::user()->region == '')
-                                        <option disabled selected>Select Region</option>
-                                        @forelse($regions as $region)
-                                          <option value="{{ $region->regcode }}"> {{ $region->ref_regdesc }}</option>
-                                        @empty
-                                          <option disabled>No records found!</option>
-                                        @endforelse
-                                    @else
-                                        <option selected value="{{ Auth::user()->region }}">{{ \DB::table('region')->where('regcode', Auth::user()->region)->first()->ref_regdesc }}</option>
-                                    @endif
+                          @if( Auth::user()->region == '')
+                              <option disabled selected>Select Region</option>
+                              @forelse($regions as $region)
+                                <option value="{{ $region->regcode }}"> {{ $region->ref_regdesc }}</option>
+                              @empty
+                                <option disabled>No records found!</option>
+                              @endforelse
+                          @else
+                              <option selected value="{{ Auth::user()->region }}">{{ \DB::table('region')->where('regcode', Auth::user()->region)->first()->ref_regdesc }}</option>
+                          @endif
                         </select>
                       </div>
 
                       <div class="col-lg-2"> 
                         <label for="province" class="form-label">Province</label>              
                         <select class="form-control form-control-sm select2" id="province" name="province" style="width: 100%;">
+                        <option selected disabled>SELECT PROVINCE</option>
+                          @if( Auth::user()->province == '')
+                              <option disabled selected>Select Province</option>
+                              @forelse($provinces as $province)
+                                <option value="{{ $province->provcode }}"> {{ $province->provname }}</option>
+                              @empty
+                                <option disabled>No records found!</option>
+                              @endforelse
+                          @else
+                              <option selected value="{{ Auth::user()->province }}">{{ \DB::table('province')->where('provcode', Auth::user()->province)->first()->provname }}</option>
+                          @endif
                         </select>
                       </div>
 
                       <div class="col-lg-2">
                         <label for="municipality" class="form-label">Municipality</label>           
                         <select class="form-control form-control-sm select2" id="municipality" name="municipality" style="width: 100%;">
+                            <option value="">ALL</option>
+                          @forelse( \DB::table('municipality')->where('provcode', Auth::user()->province)->get() as $municipality)
+                            <option value="{{ $municipality->muncode }}"> {{ $municipality->munname }}</option>
+                          @empty
+                            <option disabled>No records found!</option>
+                          @endforelse
                         </select>
                       </div>
 

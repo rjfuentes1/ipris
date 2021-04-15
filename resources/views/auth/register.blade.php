@@ -40,12 +40,26 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
+                            <label for="region" class="col-md-4 col-form-label text-md-right">{{ __('Region') }}</label>
 
                             <div class="col-md-6">
-                                <input id="area" type="area" class="form-control @error('area') is-invalid @enderror" name="area" value="{{ old('area') }}">
+                                <input id="region" type="region" class="form-control @error('region') is-invalid @enderror" name="region" value="{{ old('region') }}" required autocomplete="region">
 
-                                @error('area')
+                                @error('region')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('Province') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="province" type="province" class="form-control @error('province') is-invalid @enderror" name="province" value="{{ old('province') }}" required autocomplete="province">
+
+                                @error('province')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

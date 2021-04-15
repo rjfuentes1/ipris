@@ -19,8 +19,9 @@ class PersonController extends Controller
     {
         $people = Person::all();
         $regions = DB::table('region')->get();
+        $provinces = DB::table('province')->get();
 
-        return view('people.index', compact('people', 'regions'));
+        return view('people.index', compact('people', 'regions', 'provinces'));
     }
 
     /**
