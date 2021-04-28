@@ -207,7 +207,6 @@ class PersonController extends Controller
             'municipality' => $community->municipality,
             'barangay' => $community->barangay,
             'sitio' => $community->sitio,
-            'ethnicity' => $community->ethnicity,
         ]);
 
         $notification = array(
