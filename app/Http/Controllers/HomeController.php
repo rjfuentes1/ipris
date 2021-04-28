@@ -85,7 +85,7 @@ class HomeController extends Controller
 
     public function getHead(Request $request){
         
-        $heads = Person::where('community', $request->community)->get();
+        $heads = Person::where('community', $request->community)->where('relhh', '1')->get();
 
         $output = "<option disabled>SELECT HEAD</option>";
         $output .= "<option value=''>NONE</option>";
