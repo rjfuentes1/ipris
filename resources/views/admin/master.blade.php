@@ -162,14 +162,14 @@
         buttons: [
           {
             extend: 'excelHtml5',
-            title: 'DOH WV CHD Compensatory Record - List of Duties',
+            title: 'Indigenouse People Registry Masterlist',
             exportOptions: {
                 columns: [0,1,2,3,4]
             }					
           },
           {
             extend: 'print',
-            title: "DOH WV CHD Compensatory Record - List of Duties",
+            title: "Indigenouse People Registry Masterlist",
             exportOptions: {
                 columns: [0,1,2,3,4]
             },

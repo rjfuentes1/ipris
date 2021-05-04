@@ -99,7 +99,7 @@ class HomeController extends Controller
 
     public function filter(Request $request){
         
-        $addquery = "WHERE isIP = 'YES' AND province = $request->province ";
+        $addquery = "WHERE province = $request->province ";
         $from = \Carbon\Carbon::now()->subYears($request->maxage)->startOfYear()->format('Y-m-d');
         $to = \Carbon\Carbon::now()->addYears($request->minage)->endOfYear()->format('Y-m-d');
 

@@ -29,6 +29,7 @@
               <table id="iptbl" class="ui celled table table-bordered table-striped" style="width:100%">
                   <thead class="text-center bg-success text-light">
                   <tr>
+                    <th></th>
                     <th>ID</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Ethnicity</th>
@@ -40,6 +41,13 @@
                   <tbody>
                     @forelse ($people as $person)
                     <tr>
+                      @switch($person->relhh)
+                        @case(1)
+                          <td class="text-center bg-info" style="width:2px"></td>
+                          @break
+                        @default
+                          <td class="text-center" style="width:2px"></td>
+                      @endswitch
                         <td class="text-center"><a class="text-success" href="{{ route('people.show', $person->id) }}" target="_blank" data-toggle="tooltip" data-placement="top" title="View">{{ $person->ipId }}</a></td>
                         <td class="text-left">{{ $person->lastname .', '. $person->firstname .' '. $person->middlename .' '. $person->extension}}</td>
                         <td class="text-center">{{ \App\Ethnicity::where('id', $person->ethnicity)->first()->desc }}</td>
@@ -49,7 +57,7 @@
                     </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="text-center">No records found!</td>
+                            <td colspan="7" class="text-center">No records found!</td>
                         </tr>
                     @endforelse
                   </tbody>
